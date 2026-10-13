@@ -1,0 +1,454 @@
+/* ── Reset ── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Theme variables ── */
+:root {
+  --bg:         #0a0a0b;
+  --surface:    #111115;
+  --border:     #1e1e24;
+  --text:       #e1e4eb;
+  --text-dim:   #7a7f8a;
+  --accent:     #5b7fff;
+  --accent-bg:  rgba(91, 127, 255, 0.08);
+  --nav-hover:  #2a2d35;
+  --tag-bg:     #18181e;
+  --tag-text:   #7a7f8a;
+  --inline-code: #c9d1d9;
+  --wash-cursor: rgba(91, 127, 255, 0.1);
+}
+
+:root.light {
+  --bg:         #fafafa;
+  --surface:    #ffffff;
+  --border:     #e5e5ec;
+  --text:       #1a1a2e;
+  --text-dim:   #8a8f9e;
+  --accent:     #4a6cf7;
+  --accent-bg:  rgba(74, 108, 247, 0.06);
+  --nav-hover:  #e8e8ee;
+  --tag-bg:     #eeeeF4;
+  --tag-text:   #8a8f9e;
+  --inline-code: #2d2d44;
+  --wash-cursor: rgba(74, 108, 247, 0.1);
+}
+
+/* ── Base ── */
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: GeistSans, -apple-system, 'system-ui', 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Title font (Instrument Serif style) ── */
+h1, h2, .brand {
+  font-family: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+  font-weight: 400;
+}
+
+/* ── Layout ── */
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── Navigation ── */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 16px 0;
+  flex-wrap: wrap;
+}
+nav .brand {
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 1rem;
+}
+nav .nav-links {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+  align-items: center;
+}
+nav .nav-links a {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background 0.15s, color 0.15s;
+}
+nav .nav-links a:hover {
+  background: var(--nav-hover);
+  color: var(--text);
+}
+nav .nav-links a.active {
+  color: var(--text);
+  background: var(--nav-hover);
+}
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--text-dim);
+  transition: background 0.15s;
+}
+#theme-toggle:hover {
+  background: var(--nav-hover);
+}
+
+/* ── Main content ── */
+main { padding: 32px 0 48px; }
+
+h1 {
+  font-size: 3.3rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.15rem;
+  line-height: 1.02;
+}
+
+/* ── WebGL particle hero ── */
+#hero-particles {
+  display: none;
+  width: 100%;
+  height: 5.2rem;
+  margin-bottom: 0.15rem;
+  cursor: crosshair;
+}
+/* When WebGL is active, the canvas replaces the visible h1 but the
+   h1 stays in the DOM for screen readers and no-JS/no-WebGL fallback. */
+main.webgl-active #hero-particles { display: block; }
+main.webgl-active h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+@media (max-width: 600px) {
+  #hero-particles { height: 3.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #hero-particles { display: none !important; }
+  main.webgl-active h1 {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0 0 0.15rem;
+    overflow: visible;
+    clip: auto;
+  }
+}
+.tagline {
+  color: var(--text-dim);
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ── Bio paragraph ── */
+.bio {
+  font-size: 1rem;
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+.bio a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+.bio a:hover {
+  border-bottom-color: var(--accent);
+}
+
+/* ── Social links row ── */
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.8rem;
+  margin-bottom: 2rem;
+}
+.social-links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.15s;
+}
+.social-links a:hover { color: var(--accent); }
+.social-links .ext { color: var(--text-dim); font-size: 0.8rem; }
+
+/* ── Section headings ── */
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+.section-meta {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+/* ── Now / description list ── */
+.now-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.15rem 1.2rem;
+  margin-bottom: 2rem;
+}
+.now-list dt {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.now-list dd {
+  color: var(--text);
+  font-size: 0.95rem;
+}
+.now-list dd a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.now-list dd a:hover { text-decoration: underline; }
+.now-list dd .sub {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+/* ── GitHub contributions ── */
+.gh-contrib {
+  margin-bottom: 2rem;
+}
+.gh-contrib .count {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.gh-contrib .count a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.gh-contrib .count a:hover { text-decoration: underline; }
+.gh-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(7, 1fr);
+  gap: 3px;
+  margin-top: 0.6rem;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.gh-grid .cell {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: var(--border);
+}
+.gh-grid .cell[data-level="1"] { background: color-mix(in srgb, var(--accent) 30%, var(--border)); }
+.gh-grid .cell[data-level="2"] { background: color-mix(in srgb, var(--accent) 55%, var(--border)); }
+.gh-grid .cell[data-level="3"] { background: color-mix(in srgb, var(--accent) 78%, var(--border)); }
+.gh-grid .cell[data-level="4"] { background: var(--accent); }
+
+/* ── Hobby section ── */
+.hobby {
+  margin-bottom: 2rem;
+}
+.hobby p { font-size: 0.95rem; color: var(--text); }
+.hobby .sub { color: var(--text-dim); font-size: 0.85rem; margin-top: 0.2rem; }
+
+/* ── Photo grid ── */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 0.5rem;
+}
+.photo-grid button {
+  aspect-ratio: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  transition: opacity 0.15s;
+}
+.photo-grid button:hover { opacity: 0.85; }
+.photo-grid button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Work page ── */
+.work-item {
+  margin-bottom: 1.6rem;
+}
+.work-item .company {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.work-item .company a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.work-item .company a:hover { text-decoration: underline; }
+.work-item .date {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  margin-left: 0.3rem;
+}
+.work-item .role {
+  display: block;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+.work-item .desc {
+  display: block;
+  color: var(--text);
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+}
+
+/* ── Writing page ── */
+.writing-item {
+  margin-bottom: 1.4rem;
+}
+.writing-item .title {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.writing-item .title a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.writing-item .title a:hover { text-decoration: underline; }
+.writing-item .date {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+}
+.writing-item .desc {
+  display: block;
+  color: var(--text);
+  font-size: 0.9rem;
+  margin-top: 0.1rem;
+}
+.writing-item .source {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-left: 0.3rem;
+}
+
+/* ── Projects page ── */
+.project-item {
+  margin-bottom: 1.4rem;
+}
+.project-item .name {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.project-item .name a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.project-item .name a:hover { text-decoration: underline; }
+.project-item .tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-left: 0.3rem;
+}
+.project-item .tags span {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 1px 7px;
+  border-radius: 4px;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+}
+.project-item .desc {
+  display: block;
+  color: var(--text);
+  font-size: 0.9rem;
+  margin-top: 0.1rem;
+}
+
+/* ── Sub-heading ── */
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+.sub-heading {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* ── Divider ── */
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 1.5rem 0;
+}
+
+/* ── Cursor glow ── */
+.cursor-glow {
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle, var(--wash-cursor), transparent 63%);
+  filter: blur(50px);
+  will-change: transform;
+  width: 38rem;
+  height: 38rem;
+  margin: -19rem 0 0 -19rem;
+  transition: opacity 0.5s;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .cursor-glow { display: none; }
+}
+
+/* ── Footer ── */
+footer {
+  padding: 24px 0 32px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+footer a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+footer a:hover { color: var(--accent); }
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .container { padding: 0 16px; }
+  h1 { font-size: 1.6rem; }
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  nav { gap: 6px; }
+  nav .nav-links { gap: 4px; }
+}

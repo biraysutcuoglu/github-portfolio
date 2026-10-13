@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Work — Biray Sütçüoğlu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div aria-hidden="true" class="cursor-glow"></div>
+
+<div class="container">
+
+  <!-- Navigation -->
+  <nav>
+    <a href="/" class="brand">Biray Sütçüoğlu</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="writing.html">Writing</a>
+      <a href="projects.html">Projects</a>
+      <button id="theme-toggle" title="Toggle theme"><span>☀️</span></button>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main>
+
+    <h1>Work</h1>
+    <div class="sub-heading">places I've worked, and what I shipped.</div>
+
+    <!-- Experience list -->
+    <div class="work-item">
+      <div class="company"><a href="#">Acme Corp</a></div>
+      <span class="date">may 2026 — present</span>
+      <span class="role">senior software engineer</span>
+      <span class="desc">
+        Building a developer platform for internal microservices. Designed an
+        event-driven CI pipeline that cut build times by 40 %. Mentoring two
+        junior engineers.
+      </span>
+    </div>
+
+    <div class="work-item">
+      <div class="company"><a href="#">Startup XYZ</a></div>
+      <span class="date">jan 2024 — apr 2026</span>
+      <span class="role">backend engineer</span>
+      <span class="desc">
+        Built real-time analytics pipeline processing 2M+ events/day using
+        Kafka and Postgres. Designed RESTful APIs for the core product.
+        Led migration from monolith to services.
+      </span>
+    </div>
+
+    <div class="work-item">
+      <div class="company"><a href="#">Freelance</a></div>
+      <span class="date">2022 — 2023</span>
+      <span class="role">full-stack developer</span>
+      <span class="desc">
+        Built web apps for 5+ clients across edtech and e-commerce.
+        Delivered on time, under budget, with a 100 % satisfaction rate.
+      </span>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Biray Sütçüoğlu &middot;
+    <a href="https://github.com/biraysutcuoglu">source</a>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+<script>
+  (function() {
+    const glow = document.querySelector('.cursor-glow');
+    if (!glow) return;
+    let x = 0, y = 0;
+    let targetX = 0, targetY = 0;
+    document.addEventListener('mousemove', (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      glow.style.opacity = '1';
+    });
+    document.addEventListener('mouseleave', () => {
+      glow.style.opacity = '0';
+    });
+    function update() {
+      x += (targetX - x) * 0.08;
+      y += (targetY - y) * 0.08;
+      glow.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
+      requestAnimationFrame(update);
+    }
+    update();
+  })();
+</script>
+</body>
+</html>

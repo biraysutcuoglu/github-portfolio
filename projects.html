@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Biray Sütçüoğlu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div aria-hidden="true" class="cursor-glow"></div>
+
+<div class="container">
+
+  <!-- Navigation -->
+  <nav>
+    <a href="/" class="brand">Biray Sütçüoğlu</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="work.html">Work</a>
+      <a href="writing.html">Writing</a>
+      <a href="projects.html" class="active">Projects</a>
+      <button id="theme-toggle" title="Toggle theme"><span>☀️</span></button>
+    </div>
+  </nav>
+
+  <!-- Main -->
+  <main>
+
+    <h1>Projects</h1>
+    <div class="sub-heading">things I've built, shipped, and maintained.</div>
+
+    <!-- Project list -->
+    <div class="project-item">
+      <div class="name">
+        <a href="#">RaftKit</a>
+        <span class="ext" style="color:var(--text-dim);font-size:0.8rem;"> ↗</span>
+        <div class="tags">
+          <span>go</span>
+          <span>distributed-systems</span>
+          <span>raft</span>
+        </div>
+      </div>
+      <span class="desc">
+        A production-grade Raft consensus library in Go. Supports leader election,
+        log replication, cluster reconfiguration, and persistent state.
+        400+ stars on GitHub.
+      </span>
+    </div>
+
+    <div class="project-item">
+      <div class="name">
+        <a href="#">TuiDeploy</a>
+        <span class="ext" style="color:var(--text-dim);font-size:0.8rem;"> ↗</span>
+        <div class="tags">
+          <span>go</span>
+          <span>tui</span>
+          <span>devops</span>
+        </div>
+      </div>
+      <span class="desc">
+        A terminal UI for deploying services across environments. Built with
+        bubbletea — think "Kubernetes dashboard in your terminal."
+      </span>
+    </div>
+
+    <div class="project-item">
+      <div class="name">
+        <a href="#">EventPipe</a>
+        <span class="ext" style="color:var(--text-dim);font-size:0.8rem;"> ↗</span>
+        <div class="tags">
+          <span>typescript</span>
+          <span>kafka</span>
+          <span>analytics</span>
+        </div>
+      </div>
+      <span class="desc">
+        Real-time event processing pipeline handling 2M+ events/day.
+        Kafka → Postgres → WebSocket dashboards. Used in production at Startup XYZ.
+      </span>
+    </div>
+
+    <div class="project-item">
+      <div class="name">
+        <a href="#">Dotfiles</a>
+        <span class="ext" style="color:var(--text-dim);font-size:0.8rem;"> ↗</span>
+        <div class="tags">
+          <span>zsh</span>
+          <span>nvim</span>
+          <span>tmux</span>
+        </div>
+      </div>
+      <span class="desc">
+        My curated dotfiles — zsh, neovim, tmux, and kitty config.
+        200+ forks, featured on r/unixporn.
+      </span>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2026 Biray Sütçüoğlu &middot;
+    <a href="https://github.com/biraysutcuoglu">source</a>
+  </footer>
+
+</div>
+
+<script src="script.js"></script>
+<script>
+  (function() {
+    const glow = document.querySelector('.cursor-glow');
+    if (!glow) return;
+    let x = 0, y = 0;
+    let targetX = 0, targetY = 0;
+    document.addEventListener('mousemove', (e) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+      glow.style.opacity = '1';
+    });
+    document.addEventListener('mouseleave', () => {
+      glow.style.opacity = '0';
+    });
+    function update() {
+      x += (targetX - x) * 0.08;
+      y += (targetY - y) * 0.08;
+      glow.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
+      requestAnimationFrame(update);
+    }
+    update();
+  })();
+</script>
+</body>
+</html>
