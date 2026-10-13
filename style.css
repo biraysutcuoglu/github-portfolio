@@ -265,6 +265,11 @@ main.webgl-active h1 {
 .gh-grid .cell[data-level="2"] { background: color-mix(in srgb, var(--accent) 55%, var(--border)); }
 .gh-grid .cell[data-level="3"] { background: color-mix(in srgb, var(--accent) 78%, var(--border)); }
 .gh-grid .cell[data-level="4"] { background: var(--accent); }
+.gh-note {
+  margin-top: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--text-dim);
+}
 
 /* ── Hobby section ── */
 .hobby {
