@@ -1,22 +1,17 @@
 {
   "login": "biraysutcuoglu",
-  "generatedAt": "2026-10-13T12:34:31.712Z",
-  "source": "public-api",
-  "total": 57,
-  "publicTotal": 57,
+  "generatedAt": "2026-10-14T11:11:08.153Z",
+  "source": "graphql",
+  "total": 39,
+  "publicTotal": 39,
   "privateTotal": 0,
-  "breakdown": null,
+  "breakdown": {
+    "commits": 32,
+    "issues": 0,
+    "pullRequests": 3,
+    "reviews": 0
+  },
   "days": [
-    {
-      "date": "2025-10-12",
-      "count": 0,
-      "level": 0
-    },
-    {
-      "date": "2025-10-13",
-      "count": 0,
-      "level": 0
-    },
     {
       "date": "2025-10-14",
       "count": 0,
@@ -319,8 +314,8 @@
     },
     {
       "date": "2025-12-13",
-      "count": 21,
-      "level": 4
+      "count": 0,
+      "level": 0
     },
     {
       "date": "2025-12-14",
@@ -570,7 +565,7 @@
     {
       "date": "2026-02-01",
       "count": 4,
-      "level": 4
+      "level": 2
     },
     {
       "date": "2026-02-02",
@@ -775,7 +770,7 @@
     {
       "date": "2026-03-14",
       "count": 3,
-      "level": 3
+      "level": 2
     },
     {
       "date": "2026-03-15",
@@ -805,7 +800,7 @@
     {
       "date": "2026-03-20",
       "count": 4,
-      "level": 4
+      "level": 2
     },
     {
       "date": "2026-03-21",
@@ -840,7 +835,7 @@
     {
       "date": "2026-03-27",
       "count": 3,
-      "level": 3
+      "level": 2
     },
     {
       "date": "2026-03-28",
@@ -855,7 +850,7 @@
     {
       "date": "2026-03-30",
       "count": 4,
-      "level": 4
+      "level": 2
     },
     {
       "date": "2026-03-31",
@@ -1839,6 +1834,11 @@
     },
     {
       "date": "2026-10-13",
+      "count": 3,
+      "level": 2
+    },
+    {
+      "date": "2026-10-14",
       "count": 0,
       "level": 0
     }
