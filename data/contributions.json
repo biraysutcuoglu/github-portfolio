@@ -1,6 +1,6 @@
 {
   "login": "biraysutcuoglu",
-  "generatedAt": "2026-10-20T10:56:01.495Z",
+  "generatedAt": "2026-10-21T11:09:48.183Z",
   "source": "graphql",
   "total": 75,
   "publicTotal": 75,
@@ -12,11 +12,6 @@
     "reviews": 0
   },
   "days": [
-    {
-      "date": "2025-10-20",
-      "count": 0,
-      "level": 0
-    },
     {
       "date": "2025-10-21",
       "count": 0,
@@ -1839,6 +1834,11 @@
     },
     {
       "date": "2026-10-20",
+      "count": 0,
+      "level": 0
+    },
+    {
+      "date": "2026-10-21",
       "count": 0,
       "level": 0
     }
