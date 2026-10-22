@@ -3,24 +3,30 @@
   const html = document.documentElement;
   const btn  = document.getElementById('theme-toggle');
   const icon = btn?.querySelector('span');
+  const osDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-  // Restore saved theme
-  const saved = localStorage.getItem('theme');
-  if (saved === 'light') {
-    html.classList.add('light');
-    if (icon) icon.textContent = '🌙';
-  } else {
-    if (icon) icon.textContent = '☀️';
+  // The theme is already applied by the inline script in <head> — a saved
+  // toggle choice wins, otherwise the OS preference. Sync the icon to it.
+  function syncIcon() {
+    if (icon) icon.textContent = html.classList.contains('light') ? '🌙' : '☀️';
   }
+  syncIcon();
 
   if (btn) {
     btn.addEventListener('click', () => {
-      html.classList.toggle('light');
-      const isLight = html.classList.contains('light');
+      const isLight = !html.classList.contains('light');
+      html.classList.toggle('light', isLight);
       localStorage.setItem('theme', isLight ? 'light' : 'dark');
-      if (icon) icon.textContent = isLight ? '🌙' : '☀️';
+      syncIcon();
     });
   }
+
+  // Follow OS changes live, but only while no explicit choice is saved.
+  osDark.addEventListener('change', (e) => {
+    if (localStorage.getItem('theme')) return;
+    html.classList.toggle('light', !e.matches);
+    syncIcon();
+  });
 })();
 
 /* ── GitHub contributions ── */

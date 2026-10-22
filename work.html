@@ -5,6 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Work — Biray Sütçüoğlu</title>
   <link rel="stylesheet" href="style.css" />
+  <script>
+    // Applied before first paint to avoid a theme flash. An explicit toggle
+    // choice in localStorage wins; otherwise follow the OS preference.
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (!dark) document.documentElement.classList.add('light');
+    })();
+  </script>
 </head>
 <body>
 
