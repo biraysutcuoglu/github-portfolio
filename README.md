@@ -15,12 +15,14 @@ The contribution grid on the home page reads `data/contributions.json`.
 
 - **Public contributions only** — the file is generated from a public API.
 - **Including private contributions** — the included GitHub Actions workflow
-  (`.github/workflows/contributions.yml`) regenerates the file daily using the
+  (`.github/workflows/contributions.yml`) regenerates the file using the
   repository's `GITHUB_TOKEN`, which can read your own private contributions.
 
 ### How it works
 
-1. `.github/workflows/contributions.yml` runs on a schedule (and on demand).
+1. `.github/workflows/contributions.yml` runs when `scripts/fetch-contributions.mjs`
+   changes, or on demand via **Actions → Update GitHub contributions → Run workflow**.
+   There is no schedule, so the site only redeploys on real pushes.
 2. It runs `scripts/fetch-contributions.mjs`, which:
    - uses the **GitHub GraphQL API** when `GH_TOKEN` is set (includes private
      contributions via `restrictedContributionsCount`), or
@@ -29,6 +31,9 @@ The contribution grid on the home page reads `data/contributions.json`.
 4. `script.js` loads that file (falling back to the public API if missing).
 
 ### Manual regeneration
+
+The contribution count is a snapshot, so it stays frozen between runs. Refresh
+it from the Actions tab, or locally:
 
 ```bash
 # public only

@@ -1,9 +1,8 @@
 name: Update GitHub contributions
 
 on:
-  schedule:
-    # Every day at 06:00 UTC
-    - cron: '0 6 * * *'
+  # No schedule: this workflow only runs when the fetcher changes or when
+  # triggered manually, so pages only redeploy on real pushes.
   workflow_dispatch: {}
   push:
     branches: [main]
