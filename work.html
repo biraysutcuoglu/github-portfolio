@@ -39,72 +39,58 @@
     <h1>Work</h1>
     <div class="sub-heading">places I've worked, and what I shipped.</div>
 
-    <!-- Experience list -->
-    <div class="work-item">
-      <div class="company"><a href="#">Velth</a></div>
-      <span class="date">jun 2026 — present</span>
-      <span class="role">co-founder &amp; software engineer</span>
-      <span class="desc">
-        Building an AI-powered workplace safety platform using image, text, and
-        speech analysis to predict risks and generate legally grounded preventive
-        measures. Developed production backend APIs with FastAPI, Python, and
-        PostgreSQL, and frontend interfaces with React and TypeScript. Integrated
-        and optimized LLMs for safety-critical workflows, and led the migration
-        from Supabase to GCP.
-      </span>
-    </div>
+    <!-- Interactive career timeline -->
+    <section class="career-timeline" aria-labelledby="career-title">
+      <div class="section-title" id="career-title">Career timeline</div>
+      <div class="section-meta">click a role to see what I worked on</div>
 
-    <div class="work-item">
-      <div class="company"><a href="#">Infineon Technologies</a></div>
-      <span class="date">oct 2024 — mar 2026</span>
-      <span class="role">software engineer (working student)</span>
-      <span class="desc">
-        Designed and implemented a software solution that reduced task execution
-        time by 90 %. Built automated data processing applications replacing manual
-        Excel workflows using Python and MySQL, and developed an internal web
-        application supporting business workflows. Containerized applications with
-        Docker and deployed them to OpenShift.
-      </span>
-    </div>
+      <div class="timeline-list">
+        <details class="timeline-item" open>
+          <summary>
+            <span class="timeline-company">Velth</span>
+            <span class="timeline-date">jun 2026 — present</span>
+            <span class="timeline-role">co-founder &amp; software engineer</span>
+          </summary>
+          <p>Building an AI-powered workplace safety platform using image, text, and speech analysis to predict risks and generate legally grounded preventive measures. Developed production backend APIs with FastAPI, Python, and PostgreSQL, and frontend interfaces with React and TypeScript. Integrated and optimized LLMs for safety-critical workflows, and led the migration from Supabase to GCP.</p>
+        </details>
 
-    <div class="work-item">
-      <div class="company"><a href="#">Siemens AG</a></div>
-      <span class="date">sep 2024 — apr 2025</span>
-      <span class="role">research engineer — computer vision &amp; deep learning</span>
-      <span class="desc">
-        Improved image segmentation and classification accuracy by 14 % (BBox AP)
-        and 9.5 % (segmentation AP) on a limited, class-imbalanced dataset using
-        GenAI (Stable Diffusion) synthetic data augmentation. Published the research
-        at IEEE ICIT 2026 and designed reproducible ML training and evaluation
-        workflows.
-      </span>
-    </div>
+        <details class="timeline-item">
+          <summary>
+            <span class="timeline-company">Infineon Technologies</span>
+            <span class="timeline-date">oct 2024 — mar 2026</span>
+            <span class="timeline-role">software engineer · working student</span>
+          </summary>
+          <p>Designed and implemented a software solution that reduced task execution time by 90 %. Built automated data processing applications replacing manual Excel workflows using Python and MySQL, and developed an internal web application supporting business workflows. Containerized applications with Docker and deployed them to OpenShift.</p>
+        </details>
 
-    <div class="work-item">
-      <div class="company"><a href="#">Siemens AG</a></div>
-      <span class="date">mar 2023 — aug 2024</span>
-      <span class="role">software engineer (working student)</span>
-      <span class="desc">
-        Developed distributed data pipelines collecting data from Linux-based edge
-        devices and sensors and processing real-time industrial data. Designed
-        modular Python components for reliable communication over industrial
-        networking protocols, and built human-machine interfaces (HMI) supporting
-        robotic control systems. Worked extensively with Linux, Docker, and Git in
-        multidisciplinary Agile teams.
-      </span>
-    </div>
+        <details class="timeline-item">
+          <summary>
+            <span class="timeline-company">Siemens AG</span>
+            <span class="timeline-date">sep 2024 — apr 2025</span>
+            <span class="timeline-role">research engineer · computer vision</span>
+          </summary>
+          <p>Improved image segmentation and classification accuracy by 14 % (BBox AP) and 9.5 % (segmentation AP) on a limited, class-imbalanced dataset using GenAI (Stable Diffusion) synthetic data augmentation. Published the research at IEEE ICIT 2026 and designed reproducible ML training and evaluation workflows.</p>
+        </details>
 
-    <div class="work-item">
-      <div class="company"><a href="#">Profen</a></div>
-      <span class="date">nov 2021 — jan 2022</span>
-      <span class="role">software engineer (part-time)</span>
-      <span class="desc">
-        Developed a prototype Java Spring Boot microservice architecture at a
-        teleport and satellite network/communication technologies company.
-        Implemented REST APIs and asynchronous messaging between services, applying
-        object-oriented design for modular, maintainable backend components.
-      </span>
-    </div>
+        <details class="timeline-item">
+          <summary>
+            <span class="timeline-company">Siemens AG</span>
+            <span class="timeline-date">mar 2023 — aug 2024</span>
+            <span class="timeline-role">software engineer · working student</span>
+          </summary>
+          <p>Developed distributed data pipelines collecting data from Linux-based edge devices and sensors and processing real-time industrial data. Designed modular Python components for reliable communication over industrial networking protocols, and built human-machine interfaces (HMI) supporting robotic control systems. Worked extensively with Linux, Docker, and Git in multidisciplinary Agile teams.</p>
+        </details>
+
+        <details class="timeline-item">
+          <summary>
+            <span class="timeline-company">Profen</span>
+            <span class="timeline-date">nov 2021 — jan 2022</span>
+            <span class="timeline-role">software engineer · part-time</span>
+          </summary>
+          <p>Developed a prototype Java Spring Boot microservice architecture at a teleport and satellite network/communication technologies company. Implemented REST APIs and asynchronous messaging between services, applying object-oriented design for modular, maintainable backend components.</p>
+        </details>
+      </div>
+    </section>
 
   </main>
 

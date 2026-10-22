@@ -192,6 +192,67 @@ main.webgl-active h1 {
 .social-links a:hover { color: var(--accent); }
 .social-links .ext { color: var(--text-dim); font-size: 0.8rem; }
 
+/* ── Interactive career timeline ── */
+.career-timeline { margin-bottom: 2rem; }
+.timeline-list {
+  position: relative;
+  margin: 1rem 0 0 0.35rem;
+  padding-left: 1.35rem;
+  border-left: 1px solid var(--border);
+}
+.timeline-item {
+  position: relative;
+  margin: 0 0 0.35rem;
+  padding: 0 0 0.35rem;
+}
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -1.65rem;
+  top: 0.55rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 2px solid var(--bg);
+  border-radius: 50%;
+  background: var(--text-dim);
+  box-shadow: 0 0 0 1px var(--border);
+}
+.timeline-item[open]::before { background: var(--accent); }
+.timeline-item summary {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.05rem 0.75rem;
+  cursor: pointer;
+  list-style: none;
+  padding: 0.35rem 0;
+}
+.timeline-item summary::-webkit-details-marker { display: none; }
+.timeline-item summary::after {
+  content: '+';
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  color: var(--text-dim);
+  font-size: 1.1rem;
+  font-weight: 300;
+}
+.timeline-item[open] summary::after { content: '−'; }
+.timeline-company { color: var(--accent); font-size: 0.95rem; }
+.timeline-date { color: var(--text-dim); font-size: 0.78rem; text-align: right; }
+.timeline-role { color: var(--text-dim); font-size: 0.82rem; }
+.timeline-item p {
+  color: var(--text);
+  font-size: 0.86rem;
+  line-height: 1.55;
+  margin: 0.2rem 0 0.5rem;
+  max-width: 58ch;
+}
+@media (max-width: 520px) {
+  .timeline-item summary { grid-template-columns: 1fr; }
+  .timeline-date { text-align: left; }
+  .timeline-item summary::after { grid-column: 2; grid-row: 1 / span 3; }
+}
+
 /* ── Section headings ── */
 .section-title {
   font-size: 1.1rem;
