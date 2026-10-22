@@ -108,7 +108,7 @@ nav .nav-links a.active {
 }
 
 /* ── Main content ── */
-main { padding: 32px 0 48px; }
+main { position: relative; padding: 32px 0 48px; }
 
 h1 {
   font-size: 3.3rem;
@@ -194,38 +194,65 @@ main.webgl-active h1 {
 
 /* ── Interactive career timeline ── */
 .career-timeline { margin-bottom: 2rem; }
+.timeline-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin: 0.7rem 0 1.1rem;
+}
+.timeline-filter {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--text-dim);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.75rem;
+  padding: 0.2rem 0.55rem;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+.timeline-filter:hover,
+.timeline-filter.is-active {
+  border-color: var(--nav-hover);
+  background: var(--nav-hover);
+  color: var(--text);
+}
 .timeline-list {
   position: relative;
-  margin: 1rem 0 0 0.35rem;
-  padding-left: 1.35rem;
+  margin: 0.5rem 0 0 0.35rem;
+  padding-left: 1.2rem;
   border-left: 1px solid var(--border);
 }
 .timeline-item {
   position: relative;
-  margin: 0 0 0.35rem;
-  padding: 0 0 0.35rem;
+  margin: 0 0 0.2rem;
+  padding: 0 0 0.2rem;
 }
 .timeline-item::before {
   content: '';
   position: absolute;
-  left: -1.65rem;
-  top: 0.55rem;
-  width: 0.5rem;
-  height: 0.5rem;
-  border: 2px solid var(--bg);
+  left: -1.48rem;
+  top: 0.65rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border: 1px solid var(--bg);
   border-radius: 50%;
   background: var(--text-dim);
   box-shadow: 0 0 0 1px var(--border);
 }
-.timeline-item[open]::before { background: var(--accent); }
+.timeline-item[open]::before {
+  background: var(--accent);
+}
 .timeline-item summary {
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 0.05rem 0.75rem;
   cursor: pointer;
   list-style: none;
-  padding: 0.35rem 0;
+  padding: 0.45rem 0;
+  transition: color 0.15s;
 }
+.timeline-item summary:hover .timeline-company { text-decoration: underline; }
 .timeline-item summary::-webkit-details-marker { display: none; }
 .timeline-item summary::after {
   content: '+';
@@ -242,11 +269,29 @@ main.webgl-active h1 {
 .timeline-role { color: var(--text-dim); font-size: 0.82rem; }
 .timeline-item p {
   color: var(--text);
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   line-height: 1.55;
-  margin: 0.2rem 0 0.5rem;
+  margin: 0.25rem 0 0.65rem;
   max-width: 58ch;
 }
+.timeline-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.3rem;
+  margin: 0.45rem 0 0.35rem;
+}
+.timeline-tags span,
+.timeline-tags a {
+  border-radius: 4px;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 0.7rem;
+  padding: 0.12rem 0.45rem;
+  text-decoration: none;
+}
+.timeline-tags a { color: var(--accent); }
+.timeline-tags a:hover { text-decoration: underline; }
 @media (max-width: 520px) {
   .timeline-item summary { grid-template-columns: 1fr; }
   .timeline-date { text-align: left; }
@@ -477,24 +522,45 @@ hr {
   margin: 1.5rem 0;
 }
 
-/* ── Cursor glow ── */
-.cursor-glow {
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0;
-  background: radial-gradient(circle, var(--wash-cursor), transparent 63%);
-  filter: blur(50px);
-  will-change: transform;
-  width: 38rem;
-  height: 38rem;
-  margin: -19rem 0 0 -19rem;
-  transition: opacity 0.5s;
-  position: fixed;
-  top: 0;
-  left: 0;
+/* ── Hobby cat ── */
+.hobby-content { flex: 1; }
+.hobby-content p + p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin-top: 0.2rem;
 }
-@media (hover: none), (prefers-reduced-motion: reduce) {
-  .cursor-glow { display: none; }
+.hobby-cat {
+  position: relative;
+  display: block;
+  width: 96px;
+  height: 112px;
+  align-self: flex-end;
+  margin: -0.6rem 0 -0.4rem 1rem;
+}
+.hobby-cat img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cat-open { z-index: 1; }
+.cat-closed {
+  z-index: 2;
+  opacity: 0;
+  animation: cat-blink-image 5.8s ease-in-out infinite;
+}
+@keyframes cat-blink-image {
+  0%, 94%, 100% { opacity: 0; }
+  96% { opacity: 1; }
+  98% { opacity: 0; }
+}
+@media (min-width: 480px) {
+  .hobby { display: flex; align-items: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cat-closed { animation: none; }
 }
 
 /* ── Footer ── */

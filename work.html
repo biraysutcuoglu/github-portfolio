@@ -17,15 +17,12 @@
 </head>
 <body>
 
-<div aria-hidden="true" class="cursor-glow"></div>
-
 <div class="container">
 
   <!-- Navigation -->
   <nav>
     <a href="/" class="brand">Biray Sütçüoğlu</a>
     <div class="nav-links">
-      <a href="/">Home</a>
       <a href="work.html" class="active">Work</a>
       <a href="writing.html">Writing</a>
       <a href="projects.html">Projects</a>
@@ -44,50 +41,65 @@
       <div class="section-title" id="career-title">Career timeline</div>
       <div class="section-meta">click a role to see what I worked on</div>
 
+      <div class="timeline-filters" aria-label="Filter roles by technology">
+        <button class="timeline-filter is-active" type="button" data-filter="all">all</button>
+        <button class="timeline-filter" type="button" data-filter="python">Python</button>
+        <button class="timeline-filter" type="button" data-filter="react">React</button>
+        <button class="timeline-filter" type="button" data-filter="tsx">TSX</button>
+        <button class="timeline-filter" type="button" data-filter="fastapi">FastAPI</button>
+        <button class="timeline-filter" type="button" data-filter="gcp">GCP</button>
+        <button class="timeline-filter" type="button" data-filter="genai">GenAI</button>
+      </div>
+
       <div class="timeline-list">
-        <details class="timeline-item" open>
+        <details class="timeline-item" data-tags="python ai backend frontend fastapi react tsx gcp" open>
           <summary>
             <span class="timeline-company">Velth</span>
             <span class="timeline-date">jun 2026 — present</span>
             <span class="timeline-role">co-founder &amp; software engineer</span>
           </summary>
           <p>Building an AI-powered workplace safety platform using image, text, and speech analysis to predict risks and generate legally grounded preventive measures. Developed production backend APIs with FastAPI, Python, and PostgreSQL, and frontend interfaces with React and TypeScript. Integrated and optimized LLMs for safety-critical workflows, and led the migration from Supabase to GCP.</p>
+          <div class="timeline-tags"><span>Python</span><span>FastAPI</span><span>React</span><span>TSX</span><span>LLMs</span><span>GCP</span></div>
         </details>
 
-        <details class="timeline-item">
+        <details class="timeline-item" data-tags="python backend tableau openshift">
           <summary>
             <span class="timeline-company">Infineon Technologies</span>
             <span class="timeline-date">oct 2024 — mar 2026</span>
             <span class="timeline-role">software engineer · working student</span>
           </summary>
           <p>Designed and implemented a software solution that reduced task execution time by 90 %. Built automated data processing applications replacing manual Excel workflows using Python and MySQL, and developed an internal web application supporting business workflows. Containerized applications with Docker and deployed them to OpenShift.</p>
+          <div class="timeline-tags"><span>Python</span><span>MySQL</span><span>Tableau</span><span>OpenShift</span></div>
         </details>
 
-        <details class="timeline-item">
+        <details class="timeline-item" data-tags="ai python pytorch stable-diffusion genai">
           <summary>
             <span class="timeline-company">Siemens AG</span>
             <span class="timeline-date">sep 2024 — apr 2025</span>
             <span class="timeline-role">research engineer · computer vision</span>
           </summary>
           <p>Improved image segmentation and classification accuracy by 14 % (BBox AP) and 9.5 % (segmentation AP) on a limited, class-imbalanced dataset using GenAI (Stable Diffusion) synthetic data augmentation. Published the research at IEEE ICIT 2026 and designed reproducible ML training and evaluation workflows.</p>
+          <div class="timeline-tags"><span>Computer vision</span><span>GenAI</span><span>Stable Diffusion</span><span>PyTorch</span><a href="writing.html">related writing ↗</a></div>
         </details>
 
-        <details class="timeline-item">
+        <details class="timeline-item" data-tags="python backend linux">
           <summary>
             <span class="timeline-company">Siemens AG</span>
             <span class="timeline-date">mar 2023 — aug 2024</span>
             <span class="timeline-role">software engineer · working student</span>
           </summary>
           <p>Developed distributed data pipelines collecting data from Linux-based edge devices and sensors and processing real-time industrial data. Designed modular Python components for reliable communication over industrial networking protocols, and built human-machine interfaces (HMI) supporting robotic control systems. Worked extensively with Linux, Docker, and Git in multidisciplinary Agile teams.</p>
+          <div class="timeline-tags"><span>Python</span><span>Linux</span><span>data pipelines</span></div>
         </details>
 
-        <details class="timeline-item">
+        <details class="timeline-item" data-tags="backend java spring-boot">
           <summary>
             <span class="timeline-company">Profen</span>
             <span class="timeline-date">nov 2021 — jan 2022</span>
             <span class="timeline-role">software engineer · part-time</span>
           </summary>
           <p>Developed a prototype Java Spring Boot microservice architecture at a teleport and satellite network/communication technologies company. Implemented REST APIs and asynchronous messaging between services, applying object-oriented design for modular, maintainable backend components.</p>
+          <div class="timeline-tags"><span>Java</span><span>Spring Boot</span><span>REST APIs</span></div>
         </details>
       </div>
     </section>
@@ -103,28 +115,5 @@
 </div>
 
 <script src="script.js"></script>
-<script>
-  (function() {
-    const glow = document.querySelector('.cursor-glow');
-    if (!glow) return;
-    let x = 0, y = 0;
-    let targetX = 0, targetY = 0;
-    document.addEventListener('mousemove', (e) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
-      glow.style.opacity = '1';
-    });
-    document.addEventListener('mouseleave', () => {
-      glow.style.opacity = '0';
-    });
-    function update() {
-      x += (targetX - x) * 0.08;
-      y += (targetY - y) * 0.08;
-      glow.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
-      requestAnimationFrame(update);
-    }
-    update();
-  })();
-</script>
 </body>
 </html>

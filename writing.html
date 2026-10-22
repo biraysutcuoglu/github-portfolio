@@ -17,15 +17,12 @@
 </head>
 <body>
 
-<div aria-hidden="true" class="cursor-glow"></div>
-
 <div class="container">
 
   <!-- Navigation -->
   <nav>
     <a href="/" class="brand">Biray Sütçüoğlu</a>
     <div class="nav-links">
-      <a href="/">Home</a>
       <a href="work.html">Work</a>
       <a href="writing.html" class="active">Writing</a>
       <a href="projects.html">Projects</a>
@@ -81,28 +78,5 @@
 </div>
 
 <script src="script.js"></script>
-<script>
-  (function() {
-    const glow = document.querySelector('.cursor-glow');
-    if (!glow) return;
-    let x = 0, y = 0;
-    let targetX = 0, targetY = 0;
-    document.addEventListener('mousemove', (e) => {
-      targetX = e.clientX;
-      targetY = e.clientY;
-      glow.style.opacity = '1';
-    });
-    document.addEventListener('mouseleave', () => {
-      glow.style.opacity = '0';
-    });
-    function update() {
-      x += (targetX - x) * 0.08;
-      y += (targetY - y) * 0.08;
-      glow.style.transform = 'translate3d(' + x + 'px, ' + y + 'px, 0)';
-      requestAnimationFrame(update);
-    }
-    update();
-  })();
-</script>
 </body>
 </html>

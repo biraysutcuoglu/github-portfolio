@@ -1,3 +1,23 @@
+/* ── Career timeline filters ── */
+(function() {
+  const timeline = document.querySelector('.career-timeline');
+  if (!timeline) return;
+
+  const filters = [...timeline.querySelectorAll('.timeline-filter')];
+  const entries = [...timeline.querySelectorAll('.timeline-item')];
+
+  filters.forEach((filter) => {
+    filter.addEventListener('click', () => {
+      const selected = filter.dataset.filter;
+      filters.forEach((button) => button.classList.toggle('is-active', button === filter));
+      entries.forEach((entry) => {
+        const visible = selected === 'all' || entry.dataset.tags.split(' ').includes(selected);
+        entry.hidden = !visible;
+      });
+    });
+  });
+})();
+
 /* ── Theme toggle ── */
 (function() {
   const html = document.documentElement;
